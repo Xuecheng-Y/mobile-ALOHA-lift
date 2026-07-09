@@ -44,7 +44,7 @@ class LiftPolicy(nn.Module):
     def __init__(self, args_override):
         super().__init__()
         # Build model WITHOUT triggering parse_args on sys.argv
-        parser = ap.ArgumentParser(parents=[get_args_parser()], add_help=False)
+        parser = argparse.ArgumentParser(parents=[get_args_parser()], add_help=False)
         args = parser.parse_args([])
         for k, v in args_override.items():
             setattr(args, k, v)
